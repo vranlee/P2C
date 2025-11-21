@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2C: Points-to-Clouds - Supplementary Material</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #1a202c;
+        }
+        code {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .academic-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            transition: all 0.2s;
+        }
+        .academic-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-color: #cbd5e0;
+            transform: translateY(-2px);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Custom Scrollbar for code blocks */
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 8px;
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <span class="font-bold text-xl tracking-tight text-slate-800">P2C</span>
+                    <span class="text-xs px-2 py-0.5 rounded bg-indigo-50 text-indigo-600 font-medium border border-indigo-100">Blind Review</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#overview" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Overview</a>
+                    <a href="#methodology" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Methodology</a>
+                    <a href="#results" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Results</a>
+                    <a href="#code" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Code Implementation</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div id="overview" class="bg-white border-b border-slate-200 pt-20 pb-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">
+                From <span class="gradient-text">Points</span> to <span class="gradient-text">Clouds</span>
+            </h1>
+            <p class="text-2xl text-slate-700 font-medium mb-6">
+                Learning Robust Semantic Distributions for Multi-modal Prompts
+            </p>
+            <p class="mt-4 text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                <b>Supplementary Material - Project</b>
+                <br>
+                The experimental and technical details are supplemented by <i><u><a href="Supplementary Material.pdf" style="color:#297bda;">Supplementary Material.pdf</a></u></i>
+            </p>
+            <div class="mt-10 flex justify-center gap-4">
+                <a href="#code" class="inline-flex items-center px-5 py-2.5 rounded-full text-sm font-medium bg-slate-900 text-white hover:bg-slate-800 transition-colors shadow-sm">
+                    <i data-lucide="code-2" class="w-4 h-4 mr-2"></i> View Core Code
+                </a>
+                <a href="#results" class="inline-flex items-center px-5 py-2.5 rounded-full text-sm font-medium bg-white text-slate-700 border border-slate-300 hover:bg-slate-50 transition-colors shadow-sm">
+                    <i data-lucide="bar-chart-2" class="w-4 h-4 mr-2"></i> View Results
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
+
+        <!-- Methodology Grid -->
+        <section id="methodology">
+            <div class="flex items-center mb-8">
+                <div class="p-2 bg-indigo-100 rounded-lg mr-3">
+                    <i data-lucide="cpu" class="w-6 h-6 text-indigo-600"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-slate-900">Methodology Highlights</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="academic-card p-8 rounded-2xl">
+                    <div class="h-12 w-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 mb-6">
+                        <i data-lucide="cloud" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Semantic Cloud Learning</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Instead of optimizing a brittle, static point vector, P2C learns a distribution (cloud) over the embedding space. This captures a robust semantic region resilient to input variations and domain shifts.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="academic-card p-8 rounded-2xl">
+                    <div class="h-12 w-12 rounded-xl bg-purple-50 flex items-center justify-center text-purple-600 mb-6">
+                        <i data-lucide="zap" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Dynamic Prompt Denoising</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        We implement a <strong>GMM-based noise generator</strong> with an annealed schedule. This perturbs prompts during training, forcing the model to navigate a smoother semantic landscape from coarse to fine.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="academic-card p-8 rounded-2xl">
+                    <div class="h-12 w-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 mb-6">
+                        <i data-lucide="refresh-cw" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Auxiliary V-L Denoising</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        The V-L Mapper is re-tasked as a denoising autoencoder. It learns to reconstruct clean visual prompts from noisy text inputs, ensuring deep and robust cross-modal alignment.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Architecture Visual Placeholder -->
+        <section>
+            <div class="bg-slate-50 rounded-xl border border-slate-200 p-8 text-center border-dashed">
+                <div class="max-w-4xl mx-auto">
+                    <figure class="relative group">
+                        <img 
+                            src="assets/Framework.png" 
+                            alt="Architecture Overview" 
+                            class="w-full h-auto rounded-lg shadow-md mx-auto border border-slate-200"
+                        >
+                        <!-- Optional: Caption if needed -->
+                        <figcaption class="mt-4">
+                            <h3 class="text-lg font-medium text-slate-900">Architecture Overview</h3>
+                            <p class="text-slate-500 mt-2 text-sm max-w-2xl mx-auto">
+                                Points-to-Clouds (P2C) framework. The dual denoising mechanism learns a robust semantic <i>CLOUD</i> instead of a <i>POINT</i>. Text prompts are perturbed with annealed noise, while the V-L Mapper (F) is trained to reconstruct clean visual prompts from the noisy inputs.
+                            </p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance Table -->
+        <section id="results">
+            <div class="flex items-center mb-8">
+                <div class="p-2 bg-indigo-100 rounded-lg mr-3">
+                    <i data-lucide="trophy" class="w-6 h-6 text-indigo-600"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-slate-900">State-of-the-Art Performance</h2>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="px-6 py-4 border-b border-slate-100 bg-slate-50">
+                    <h3 class="font-semibold text-slate-700">Base-to-Novel Generalization (Average over 11 Datasets)</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-slate-200">
+                        <thead class="bg-slate-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Method</th>
+                                <th scope="col" class="px-6 py-4 text-center text-xs font-semibold text-slate-500 uppercase tracking-wider">Base Accuracy</th>
+                                <th scope="col" class="px-6 py-4 text-center text-xs font-semibold text-slate-500 uppercase tracking-wider">Novel Accuracy</th>
+                                <th scope="col" class="px-6 py-4 text-center text-xs font-bold text-indigo-600 uppercase tracking-wider">Harmonic Mean (HM)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-slate-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-700">CoOp</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-center text-slate-600">82.7</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-center text-slate-600">63.2</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-center text-slate-600">71.7</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-700">CoCoOp</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-center text-slate-600">80.5</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-center text-slate-600">71.7</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-center text-slate-600">75.8</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-700">MaPLe</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-center text-slate-600">82.3</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-center text-slate-600">75.1</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-center text-slate-600">78.6</td>
+                            </tr>
+                            <tr class="bg-indigo-50/50">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-indigo-700">P2C (Ours)</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-center font-semibold text-slate-800">83.5</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-center font-semibold text-slate-800">76.1</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-center font-bold text-indigo-700">79.7</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Code Implementation -->
+        <section id="code">
+            <div class="flex items-center mb-8">
+                <div class="p-2 bg-indigo-100 rounded-lg mr-3">
+                    <i data-lucide="code" class="w-6 h-6 text-indigo-600"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-slate-900">Core Implementation Preview</h2>
+            </div>
+            
+            <div class="bg-[#0f172a] rounded-xl shadow-2xl overflow-hidden border border-slate-700">
+                <div class="flex items-center justify-between px-4 py-3 bg-[#1e293b] border-b border-slate-700">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-mono text-blue-400">core.py</span>
+                    </div>
+                    <div class="flex space-x-1.5">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                </div>
+                <div class="p-6 overflow-x-auto custom-scrollbar">
+<pre class="text-sm font-mono leading-relaxed"><code class="language-python text-slate-300">
+<span class="text-slate-500"># From core.py: Implementation of GMM Noise Generator</span>
+<span class="text-purple-400">class</span> <span class="text-yellow-200">GaussianMixtureNoiseGenerator</span>(nn.Module):
+    <span class="text-purple-400">def</span> <span class="text-blue-400">__init__</span>(self, cfg, device):
+        <span class="text-purple-400">super</span>().__init__()
+        <span class="text-slate-500"># Initialize GMM components from config</span>
+        self.num_components = cfg.TRAINER.PROMPT_DENOISING.GMM_COMPONENTS
+        self.gmm_means = cfg.TRAINER.PROMPT_DENOISING.GMM_MEANS
+        self.gmm_stds = cfg.TRAINER.PROMPT_DENOISING.GMM_STDS
+        
+        <span class="text-slate-500"># ... (initialization code hidden for brevity) ...</span>
+
+    <span class="text-purple-400">def</span> <span class="text-blue-400">forward</span>(self, tensor_like):
+        mix = Categorical(self.mix_weights)
+        comp = Normal(self.means, self.stds)
+        gmm = MixtureSameFamily(mix, comp)
+        
+        <span class="text-slate-500"># Sample noise from the semantic cloud distribution</span>
+        noise = gmm.sample(tensor_like.shape)
+        <span class="text-purple-400">return</span> noise.to(device=tensor_like.device, dtype=tensor_like.dtype)
+
+<span class="text-slate-500"># From core.py: Multi-modal Prompt Learner with DPD</span>
+<span class="text-purple-400">class</span> <span class="text-yellow-200">MultiModalPromptLearner</span>(nn.Module):
+    <span class="text-slate-500"># ...</span>
+    <span class="text-purple-400">def</span> <span class="text-blue-400">forward</span>(self, epoch=None, max_epoch=None):
+        <span class="text-slate-500"># Get current annealed noise scale</span>
+        current_noise_scale = self._get_noise_scale(epoch, max_epoch)
+
+        <span class="text-purple-400">if</span> current_noise_scale > <span class="text-orange-300">0</span>:
+            <span class="text-slate-500"># Apply Dynamic Prompt Denoising (DPD)</span>
+            ctx = ctx + self._generate_noise(ctx, current_noise_scale)
+            <span class="text-purple-400">if</span> self.use_atp:
+                ctx_att1 = ctx_att1 + self._generate_noise(ctx_att1, current_noise_scale)
+                <span class="text-slate-500"># ... apply to other attributes ...</span>
+
+        shared_ctx = self.proj(self.ctx)
+        <span class="text-purple-400">return</span> prompts, shared_ctx, ...
+</code></pre>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-lg font-semibold text-slate-100 mb-2">P2C: Points-to-Clouds</p>
+            <p class="text-slate-400 text-sm mb-6">Supplementary Material for Anonymous Review</p>
+            <div class="inline-flex items-center px-4 py-2 rounded-full bg-slate-800 border border-slate-700 text-slate-400 text-xs">
+                <i data-lucide="shield-check" class="w-3 h-3 mr-2"></i>
+                Review Copy • No PII Included
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
