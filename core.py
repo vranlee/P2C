@@ -1,6 +1,6 @@
 # ------------------------------------------------------------------------
 # Supplementary Material - Core Implementation Source Code
-# From Points to Clouds: Learning Robust Semantic Distributions for Multi-modal Prompts
+# From Points to Clouds: Learning Robust Semantic Distributions for Vision-Language Prompting
 # ------------------------------------------------------------------------
 
 

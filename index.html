@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P2C: Points-to-Clouds - Supplementary Material</title>
+    <title>P2C: Points-to-Clouds - Project Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -54,36 +54,49 @@
             <div class="flex justify-between h-16 items-center">
                 <div class="flex-shrink-0 flex items-center gap-3">
                     <span class="font-bold text-xl tracking-tight text-slate-800">P2C</span>
-                    <span class="text-xs px-2 py-0.5 rounded bg-indigo-50 text-indigo-600 font-medium border border-indigo-100">Blind Review</span>
+                    <span class="text-xs px-2 py-0.5 rounded bg-blue-50 text-blue-600 font-medium border border-blue-100">Blind Review</span>
                 </div>
-                <div class="hidden md:flex space-x-8">
+                <div class="hidden md:flex items-center space-x-8">
                     <a href="#overview" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Overview</a>
                     <a href="#methodology" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Methodology</a>
                     <a href="#results" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Results</a>
-                    <a href="#code" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Code Implementation</a>
+                    <a href="#code" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Code</a>
+                    
+                    <div class="h-4 w-px bg-slate-300"></div> <!-- Divider -->
+                    
+                    <!-- Top Nav Links to external -->
+                    <a href="https://github.com/vranlee/P2C" target="_blank" class="text-slate-500 hover:text-slate-900 transition-colors">
+                        <i data-lucide="github" class="w-5 h-5"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <div id="overview" class="bg-white border-b border-slate-200 pt-20 pb-16">
+    <div class="bg-white border-b border-slate-200 pt-20 pb-16">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">
                 From <span class="gradient-text">Points</span> to <span class="gradient-text">Clouds</span>
             </h1>
             <p class="text-2xl text-slate-700 font-medium mb-6">
-                Learning Robust Semantic Distributions for Multi-modal Prompts
+                Learning Robust Semantic Distributions for Vision-Language Prompting
             </p>
-            <p class="mt-4 text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-                <b>Supplementary Material - Project</b>
-            </p>
-            <div class="mt-10 flex justify-center gap-4">
-                <a href="#code" class="inline-flex items-center px-5 py-2.5 rounded-full text-sm font-medium bg-slate-900 text-white hover:bg-slate-800 transition-colors shadow-sm">
-                    <i data-lucide="code-2" class="w-4 h-4 mr-2"></i> View Core Code
+            
+            <!-- Quick Links Buttons -->
+            <div class="mt-10 flex flex-wrap justify-center gap-4">
+                <!-- GitHub Link -->
+                <a href="https://github.com/vranlee/P2C" target="_blank" class="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium bg-slate-900 text-white hover:bg-slate-800 transition-colors shadow-sm">
+                    <i data-lucide="github" class="w-4 h-4 mr-2"></i> View on GitHub
                 </a>
-                <a href="#results" class="inline-flex items-center px-5 py-2.5 rounded-full text-sm font-medium bg-white text-slate-700 border border-slate-300 hover:bg-slate-50 transition-colors shadow-sm">
-                    <i data-lucide="bar-chart-2" class="w-4 h-4 mr-2"></i> View Results
+                
+                <!-- ArXiv Link (Replace # with actual arxiv URL later) -->
+                <a href="https://arxiv.org/abs/2511.22897" target="_blank" class="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium bg-red-50 text-red-700 border border-red-200 hover:bg-red-100 transition-colors shadow-sm">
+                    <i data-lucide="file-text" class="w-4 h-4 mr-2"></i> Read ArXiv Paper
+                </a>
+
+                <a href="#code" class="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium bg-white text-slate-700 border border-slate-300 hover:bg-slate-50 transition-colors shadow-sm">
+                    <i data-lucide="code-2" class="w-4 h-4 mr-2"></i> Implementation
                 </a>
             </div>
         </div>
@@ -91,24 +104,58 @@
 
     <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
 
-        <!-- Methodology Grid -->
+        <!-- Overview Section -->
+        <section id="overview" class="max-w-4xl mx-auto">
+            <div class="flex items-center mb-6">
+                <div class="p-2 bg-blue-100 rounded-lg mr-3">
+                    <i data-lucide="lightbulb" class="w-6 h-6 text-blue-600"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-slate-900">Overview</h2>
+            </div>
+            <div class="prose prose-slate prose-lg text-slate-600 leading-relaxed">
+                <p>
+                    While Multimodal Prompt Learning (MPL) effectively adapts Vision-Language Models, optimizing a single static point representation can be limited by base-class overfitting and training instability. Furthermore, addressing this via external Large Language Models (LLMs) often introduces additional computational overhead and reliance on external priors.
+                </p>
+                <p class="mt-4">
+                    To overcome these limitations endogenously, we propose <strong>Points-to-Clouds (P2C)</strong>, a novel LLM-free framework that reframes prompt learning as a dynamic denoising task. P2C transitions from learning a deterministic point to a continuous semantic cloud via a dual denoising mechanism.
+                </p>
+            </div>
+        </section>
+
+        <!-- Architecture Visual -->
+        <section>
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 text-center">
+                <div class="max-w-4xl mx-auto">
+                    <figure class="relative group">
+                        <!-- Make sure 'assets/Framework.png' exists in your repo -->
+                        <img 
+                            src="assets/Framework.png" 
+                            alt="P2C Architecture Overview" 
+                            class="w-full h-auto rounded-lg mx-auto"
+                        >
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methodology Grid (Key Contributions) -->
         <section id="methodology">
             <div class="flex items-center mb-8">
                 <div class="p-2 bg-indigo-100 rounded-lg mr-3">
                     <i data-lucide="cpu" class="w-6 h-6 text-indigo-600"></i>
                 </div>
-                <h2 class="text-3xl font-bold text-slate-900">Methodology Highlights</h2>
+                <h2 class="text-3xl font-bold text-slate-900">Key Contributions</h2>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Feature 1 -->
                 <div class="academic-card p-8 rounded-2xl">
                     <div class="h-12 w-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 mb-6">
-                        <i data-lucide="cloud" class="w-6 h-6"></i>
+                        <i data-lucide="unlock" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Semantic Cloud Learning</h3>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">1. Endogenous and LLM-Free</h3>
                     <p class="text-slate-600 leading-relaxed">
-                        Instead of optimizing a brittle, static point vector, P2C learns a distribution (cloud) over the embedding space. This captures a robust semantic region resilient to input variations and domain shifts.
+                        P2C fundamentally challenges the reliance on external explicit knowledge (e.g., querying LLMs for attribute generation). It learns a robust semantic region entirely from within, ensuring scalability and preventing hallucinations in specialized domains.
                     </p>
                 </div>
 
@@ -117,43 +164,21 @@
                     <div class="h-12 w-12 rounded-xl bg-purple-50 flex items-center justify-center text-purple-600 mb-6">
                         <i data-lucide="zap" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Dynamic Prompt Denoising</h3>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">2. Dual Denoising Mechanism</h3>
                     <p class="text-slate-600 leading-relaxed">
-                        We implement a <strong>GMM-based noise generator</strong> with an annealed schedule. This perturbs prompts during training, forcing the model to navigate a smoother semantic landscape from coarse to fine.
+                        We introduce a synergistic denoising approach. A Dynamic Prompt Denoising (DPD) module injects annealed GMM noise into text prompts. Simultaneously, an auxiliary consistency loss explicitly forces the V-L Mapper to reconstruct clean visual prompts from these perturbed inputs.
                     </p>
                 </div>
 
                 <!-- Feature 3 -->
                 <div class="academic-card p-8 rounded-2xl">
                     <div class="h-12 w-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 mb-6">
-                        <i data-lucide="refresh-cw" class="w-6 h-6"></i>
+                        <i data-lucide="anchor" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Auxiliary V-L Denoising</h3>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">3. Structural Stabilizer</h3>
                     <p class="text-slate-600 leading-relaxed">
-                        The V-L Mapper is re-tasked as a denoising autoencoder. It learns to reconstruct clean visual prompts from noisy text inputs, ensuring deep and robust cross-modal alignment.
+                        By smoothing the optimization landscape, P2C acts as an effective stabilizer. It significantly mitigates the initialization variance commonly observed in prompt learning and enables reliable convergence regardless of prompt capacity or random seeds.
                     </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Architecture Visual Placeholder -->
-        <section>
-            <div class="bg-slate-50 rounded-xl border border-slate-200 p-8 text-center border-dashed">
-                <div class="max-w-4xl mx-auto">
-                    <figure class="relative group">
-                        <img 
-                            src="assets/Framework.png" 
-                            alt="Architecture Overview" 
-                            class="w-full h-auto rounded-lg shadow-md mx-auto border border-slate-200"
-                        >
-                        <!-- Optional: Caption if needed -->
-                        <figcaption class="mt-4">
-                            <h3 class="text-lg font-medium text-slate-900">Architecture Overview</h3>
-                            <p class="text-slate-500 mt-2 text-sm max-w-2xl mx-auto">
-                                Points-to-Clouds (P2C) framework. The dual denoising mechanism learns a robust semantic <i>CLOUD</i> instead of a <i>POINT</i>. Text prompts are perturbed with annealed noise, while the V-L Mapper (F) is trained to reconstruct clean visual prompts from the noisy inputs.
-                            </p>
-                        </figcaption>
-                    </figure>
                 </div>
             </div>
         </section>
@@ -164,10 +189,14 @@
                 <div class="p-2 bg-indigo-100 rounded-lg mr-3">
                     <i data-lucide="trophy" class="w-6 h-6 text-indigo-600"></i>
                 </div>
-                <h2 class="text-3xl font-bold text-slate-900">State-of-the-Art Performance</h2>
+                <h2 class="text-3xl font-bold text-slate-900">Empirical Performance</h2>
             </div>
             
-            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+            <p class="text-slate-600 mb-6 max-w-4xl">
+                Extensive experiments across 11 diverse datasets highlight the superiority of P2C. It achieves a state-of-the-art <strong>79.7% harmonic mean</strong> on the challenging base-to-novel generalization benchmark, alongside excellent cross-dataset transferability.
+            </p>
+
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden max-w-4xl">
                 <div class="px-6 py-4 border-b border-slate-100 bg-slate-50">
                     <h3 class="font-semibold text-slate-700">Base-to-Novel Generalization (Average over 11 Datasets)</h3>
                 </div>
@@ -221,71 +250,84 @@
                 <h2 class="text-3xl font-bold text-slate-900">Core Implementation Preview</h2>
             </div>
             
-            <div class="bg-[#0f172a] rounded-xl shadow-2xl overflow-hidden border border-slate-700">
-                <div class="flex items-center justify-between px-4 py-3 bg-[#1e293b] border-b border-slate-700">
-                    <div class="flex items-center gap-2">
-                        <span class="text-xs font-mono text-blue-400">core.py</span>
+            <p class="text-slate-600 mb-6">We provide a sneak peek into the core implementation of our Dual Denoising Mechanism.</p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Code Block 1 -->
+                <div class="bg-[#0f172a] rounded-xl shadow-xl overflow-hidden border border-slate-700">
+                    <div class="flex items-center justify-between px-4 py-3 bg-[#1e293b] border-b border-slate-700">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-mono text-blue-400 font-semibold">1. Dynamic Prompt Denoising</span>
+                        </div>
                     </div>
-                    <div class="flex space-x-1.5">
-                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                    </div>
-                </div>
-                <div class="p-6 overflow-x-auto custom-scrollbar">
-<pre class="text-sm font-mono leading-relaxed"><code class="language-python text-slate-300">
-<span class="text-slate-500"># From core.py: Implementation of GMM Noise Generator</span>
+                    <div class="p-5 overflow-x-auto custom-scrollbar">
+<pre class="text-sm font-mono leading-relaxed"><code class="language-python text-slate-300"><span class="text-slate-500"># A sophisticated GMM noise generator for multi-modal clouds</span>
 <span class="text-purple-400">class</span> <span class="text-yellow-200">GaussianMixtureNoiseGenerator</span>(nn.Module):
     <span class="text-purple-400">def</span> <span class="text-blue-400">__init__</span>(self, cfg, device):
         <span class="text-purple-400">super</span>().__init__()
-        <span class="text-slate-500"># Initialize GMM components from config</span>
         self.num_components = cfg.TRAINER.PROMPT_DENOISING.GMM_COMPONENTS
-        self.gmm_means = cfg.TRAINER.PROMPT_DENOISING.GMM_MEANS
-        self.gmm_stds = cfg.TRAINER.PROMPT_DENOISING.GMM_STDS
-        
-        <span class="text-slate-500"># ... (initialization code hidden for brevity) ...</span>
+        self.mix_weights = torch.ones(self.num_components, device=device) / self.num_components
+        self.means = torch.tensor(cfg.TRAINER.PROMPT_DENOISING.GMM_MEANS, device=device)
+        self.stds = torch.tensor(cfg.TRAINER.PROMPT_DENOISING.GMM_STDS, device=device)
 
     <span class="text-purple-400">def</span> <span class="text-blue-400">forward</span>(self, tensor_like):
         mix = Categorical(self.mix_weights)
         comp = Normal(self.means, self.stds)
         gmm = MixtureSameFamily(mix, comp)
-        
-        <span class="text-slate-500"># Sample noise from the semantic cloud distribution</span>
-        noise = gmm.sample(tensor_like.shape)
-        <span class="text-purple-400">return</span> noise.to(device=tensor_like.device, dtype=tensor_like.dtype)
-
-<span class="text-slate-500"># From core.py: Multi-modal Prompt Learner with DPD</span>
-<span class="text-purple-400">class</span> <span class="text-yellow-200">MultiModalPromptLearner</span>(nn.Module):
-    <span class="text-slate-500"># ...</span>
-    <span class="text-purple-400">def</span> <span class="text-blue-400">forward</span>(self, epoch=None, max_epoch=None):
-        <span class="text-slate-500"># Get current annealed noise scale</span>
-        current_noise_scale = self._get_noise_scale(epoch, max_epoch)
-
-        <span class="text-purple-400">if</span> current_noise_scale > <span class="text-orange-300">0</span>:
-            <span class="text-slate-500"># Apply Dynamic Prompt Denoising (DPD)</span>
-            ctx = ctx + self._generate_noise(ctx, current_noise_scale)
-            <span class="text-purple-400">if</span> self.use_atp:
-                ctx_att1 = ctx_att1 + self._generate_noise(ctx_att1, current_noise_scale)
-                <span class="text-slate-500"># ... apply to other attributes ...</span>
-
-        shared_ctx = self.proj(self.ctx)
-        <span class="text-purple-400">return</span> prompts, shared_ctx, ...
+        <span class="text-purple-400">return</span> gmm.sample(tensor_like.shape).to(dtype=tensor_like.dtype)
 </code></pre>
+                    </div>
                 </div>
+
+                <!-- Code Block 2 -->
+                <div class="bg-[#0f172a] rounded-xl shadow-xl overflow-hidden border border-slate-700">
+                    <div class="flex items-center justify-between px-4 py-3 bg-[#1e293b] border-b border-slate-700">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-mono text-emerald-400 font-semibold">2. Auxiliary V-L Mapper Denoising</span>
+                        </div>
+                    </div>
+                    <div class="p-5 overflow-x-auto custom-scrollbar">
+<pre class="text-sm font-mono leading-relaxed"><code class="language-python text-slate-300"><span class="text-slate-500"># Enforcing the V-L Mapper to act as a Denoising Autoencoder</span>
+<span class="text-purple-400">if</span> self.training <span class="text-purple-400">and</span> self.v_t_mapper_cfg.ENABLED:
+    <span class="text-slate-500"># 1. Clean visual target (sg operator applied via .detach())</span>
+    clean_text_prompt = self.prompt_learner.ctx
+    clean_vision_prompt = shared_ctx.detach() 
+
+    <span class="text-slate-500"># 2. Independent noise sampling for the auxiliary task</span>
+    noise = torch.randn_like(clean_text_prompt) * self.aux_noise_std
+    noisy_text_prompt = clean_text_prompt + noise
+
+    <span class="text-slate-500"># 3. Reconstruction and consistency loss computation</span>
+    reconstructed_vision_prompt = self.prompt_learner.proj(noisy_text_prompt)
+    consistency_loss = F.mse_loss(reconstructed_vision_prompt, clean_vision_prompt)
+    
+    total_loss = classification_loss + self.aux_loss_weight * consistency_loss
+</code></pre>
+                    </div>
+                </div>
+
             </div>
         </section>
 
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-white py-12 border-t border-slate-800">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-lg font-semibold text-slate-100 mb-2">P2C: Points-to-Clouds</p>
-            <p class="text-slate-400 text-sm mb-6">Supplementary Material for Anonymous Review</p>
-            <div class="inline-flex items-center px-4 py-2 rounded-full bg-slate-800 border border-slate-700 text-slate-400 text-xs">
-                <i data-lucide="shield-check" class="w-3 h-3 mr-2"></i>
-                Review Copy • No PII Included
+    <footer class="bg-slate-900 text-white py-12 border-t border-slate-800 mt-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+            <h2 class="text-xl font-bold tracking-tight text-white mb-4">P2C: Points-to-Clouds</h2>
+            <div class="flex space-x-6 mb-6">
+                <!-- Footer Links -->
+                <a href="https://github.com/vranlee/P2C" target="_blank" class="text-slate-400 hover:text-white transition-colors flex items-center">
+                    <i data-lucide="github" class="w-5 h-5 mr-2"></i> GitHub Repository
+                </a>
+                <a href="https://arxiv.org/abs/2511.22897" target="_blank" class="text-slate-400 hover:text-white transition-colors flex items-center">
+                    <i data-lucide="file-text" class="w-5 h-5 mr-2"></i> ArXiv Paper
+                </a>
             </div>
+            <p class="text-slate-500 text-sm">
+                Project Code and pre-trained weights will be fully released upon paper acceptance.
+            </p>
         </div>
     </footer>
 
@@ -293,5 +335,4 @@
         lucide.createIcons();
     </script>
 </body>
-
 </html>
